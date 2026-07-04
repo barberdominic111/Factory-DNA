@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Factory floor animations, shared across components */
+@keyframes conveyor {
+  from { background-position: 0 0; }
+  to { background-position: -40px 0; }
+}
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.conveyor-belt {
+  height: 10px;
+  border-radius: 6px;
+  background: repeating-linear-gradient(90deg, #f97316 0 20px, #fed7aa 20px 40px);
+  animation: conveyor 0.6s linear infinite;
+}
+.machine-active .gear { animation: spin-slow 3s linear infinite; }
+.worker-bob { animation: bounce-soft 1.2s ease-in-out infinite; }
